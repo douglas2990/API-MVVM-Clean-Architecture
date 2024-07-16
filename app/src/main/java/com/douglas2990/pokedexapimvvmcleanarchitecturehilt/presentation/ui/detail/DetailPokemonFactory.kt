@@ -3,13 +3,14 @@ package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.deta
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDetailPokemonUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 
-
-//class DetailPokemonFactory (private val pokemonId: String) : ViewModelProvider.Factory {
-class DetailPokemonFactory (private val getUseCasepokemon: GetDetailPokemonUseCase,
-                            private val pokemonId: String) : ViewModelProvider.Factory {
+class DetailPokemonFactory (val pokemonId: String) : ViewModelProvider.Factory {
+    val getUseCasepokemon: GetDetailPokemonUseCase? = null
+    val detailPokemonViewModel =  DetailPokemonViewModel(getUseCasepokemon!!)
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return DetailPokemonViewModel(getUseCasepokemon,pokemonId) as T
+        ///return DetailPokemonViewModel(getUseCasepokemon!!, pokemonId = pokemonId ) as T
+        return detailPokemonViewModel.recuperarPokemon(pokemonId) as T
     }
 
 }

@@ -5,8 +5,9 @@ import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultad
 
 
 interface DetalhePokemonRepository {
-    val pokemonId: String
+    //val pokemonId: String
 
-    suspend fun detalhePokemon() : DetalhePokemon?
+    suspend fun detalhePokemon(pokemonId: String) : DetalhePokemon?
+    //suspend fun detalhePokemon() : DetalhePokemon?
 }
 

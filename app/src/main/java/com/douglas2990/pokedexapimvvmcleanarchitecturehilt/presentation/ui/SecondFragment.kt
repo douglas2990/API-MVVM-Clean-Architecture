@@ -18,6 +18,7 @@ import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDet
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.ListPokemonAdapter
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.detail.DetailPokemonFactory
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.detail.DetailPokemonViewModel
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.viewmodel.PokemonListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -29,20 +30,15 @@ class SecondFragment : Fragment() {
     private var _binding: FragmentSecondBinding? = null
 
 
-    private val detalhePokemonRepository = object : DetalhePokemonRepository{
-        override val pokemonId: String
-            get() = arguments?.getString("id","") ?: ""
 
-        override suspend fun detalhePokemon(): DetalhePokemon? {
-            TODO("Not yet implemented")
-        }
-    }
-
-    private val getUseCasepokemon = GetDetailPokemonUseCase(detalhePokemonRepository)
 
     private val viewModel by viewModels<DetailPokemonViewModel>{
-        DetailPokemonFactory(getUseCasepokemon, arguments?.getString("id","") ?: "")
+        DetailPokemonFactory( arguments?.getString("id","") ?: "")
+        //DetailPokemonFactory(GetDetailPokemonUseCase)
     }
+
+    private val detailPokemonViewModel by viewModels<DetailPokemonViewModel>()
+
 
 
 
@@ -70,12 +66,12 @@ class SecondFragment : Fragment() {
         binding.progressBarHp.max = 400
 
 
-        /*
-        viewModel.detalhePokemon.observe(viewLifecycleOwner){ resultPokemon->
+
+        detailPokemonViewModel.detalhePokemon.observe(viewLifecycleOwner){ resultPokemon->
             binding.detailNamePokemon.text = resultPokemon?.nome.toString()
         }
 
-         */
+
 
 
 
@@ -86,4 +82,12 @@ class SecondFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+    override fun onStart() {
+        super.onStart()
+        detailPokemonViewModel.recuperarPokemon(arguments?.getString("id","") ?: "")
+    }
+
+
 }

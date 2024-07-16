@@ -8,12 +8,11 @@ import javax.inject.Inject
 
 
 class DetailPokemonRepositoryImpl @Inject constructor(
-    private val dummyAPI: DummyAPI,
-    override val pokemonId: String,
+    val dummyAPI: DummyAPI,
 ): DetalhePokemonRepository {
-    override suspend fun detalhePokemon(): DetalhePokemon? {
+    override suspend fun detalhePokemon(pokemonId: String): DetalhePokemon? {
         try {
-            val respostaDetailPokemon = dummyAPI.pokemonDittoDetail(pokemonId)
+            val respostaDetailPokemon = dummyAPI.pokemonDetail(pokemonId)
             if( respostaDetailPokemon.isSuccessful && respostaDetailPokemon.body() != null){
                 val detailPokemonAPIDTO = respostaDetailPokemon.body()
                 val pokemonDetail = detailPokemonAPIDTO

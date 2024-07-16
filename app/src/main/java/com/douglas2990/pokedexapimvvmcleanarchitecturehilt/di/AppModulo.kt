@@ -1,8 +1,11 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.di
 
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.remote.DummyAPI
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.repository.DetailPokemonRepositoryImpl
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.repository.ResultRepositoryImpl
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemonRepository
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.ResultRepository
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDetailPokemonUseCase
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetResultUseCase
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.util.Constantes.BASE_URL
 import dagger.Module
@@ -32,15 +35,27 @@ object AppModulo {
     }
 
     @Provides
-    fun proverUsuarioRespository(
+    fun proverResultRespository(
         dummyAPI: DummyAPI
     ) : ResultRepository {
         return ResultRepositoryImpl( dummyAPI )
+    }
+    @Provides
+    fun proverDetailRespository(
+        dummyAPI: DummyAPI
+    ) : DetalhePokemonRepository {
+        return DetailPokemonRepositoryImpl( dummyAPI )
     }
 
     @Provides
     fun proverResultUseCase( resultRepository: ResultRepository
     ) : GetResultUseCase {
         return GetResultUseCase( resultRepository )
+    }
+
+    @Provides
+    fun proverDetailUseCase( detailRepository: DetalhePokemonRepository
+    ) : GetDetailPokemonUseCase {
+        return GetDetailPokemonUseCase( detailRepository )
     }
 }

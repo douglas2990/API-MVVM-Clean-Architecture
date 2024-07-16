@@ -14,21 +14,28 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailPokemonViewModel  @Inject constructor(
     private val detalhePokemonUseCase: GetDetailPokemonUseCase,
-    private val detalhePokemonId: String
 ) :  ViewModel(){
 
+    //val pokemonId: String
     private val _resultados = MutableLiveData<DetalhePokemon?>()
 
     val detalhePokemon: LiveData<DetalhePokemon?>
         get() = _resultados
 
+
     init {
-        recuperarPokemon(detalhePokemonId)
+        //recuperarPokemon("")
     }
 
-    fun recuperarPokemon(detalhePokemonId: String){
+
+
+
+
+   // fun recuperarPokemon(detalhePokemonId: String){
+    //fun recuperarPokemon(pokemonId: String){
+    fun recuperarPokemon(pokemonId: String){
         viewModelScope.launch {
-            val detalhePokemon = detalhePokemonUseCase()
+            val detalhePokemon = detalhePokemonUseCase(pokemonId)
             _resultados.postValue( detalhePokemon )
         }
     }
