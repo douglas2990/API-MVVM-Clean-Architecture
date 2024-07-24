@@ -1,7 +1,7 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase
 
 
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.DetalhePokemon
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemonRepository
 import javax.inject.Inject
 

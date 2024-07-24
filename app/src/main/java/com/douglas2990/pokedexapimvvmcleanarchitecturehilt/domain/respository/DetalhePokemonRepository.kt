@@ -1,7 +1,6 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository
 
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.DetalhePokemon
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultado
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon
 
 
 interface DetalhePokemonRepository {

@@ -1,5 +1,6 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter
 
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

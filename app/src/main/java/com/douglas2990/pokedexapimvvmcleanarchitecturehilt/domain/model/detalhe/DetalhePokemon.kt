@@ -1,4 +1,4 @@
-package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model
+package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe
 
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.Ability
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.Cries

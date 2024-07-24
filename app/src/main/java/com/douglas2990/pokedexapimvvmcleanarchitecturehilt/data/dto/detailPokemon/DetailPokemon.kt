@@ -1,8 +1,6 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon
 
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.Result
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.DetalhePokemon
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultado
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon
 
 data class DetailPokemon(
     val abilities: List<Ability>,

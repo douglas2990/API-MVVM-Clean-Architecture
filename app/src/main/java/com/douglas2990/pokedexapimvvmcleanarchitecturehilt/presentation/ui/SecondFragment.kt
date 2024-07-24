@@ -6,19 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.R
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.databinding.FragmentSecondBinding
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.DetalhePokemon
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemonRepository
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDetailPokemonUseCase
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.ListPokemonAdapter
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.detail.DetailPokemonFactory
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.detail.DetailPokemonViewModel
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.viewmodel.PokemonListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -32,7 +23,7 @@ class SecondFragment : Fragment() {
 
 
 
-    private val viewModel by viewModels<DetailPokemonViewModel>{
+    private val viewModelFactory by viewModels<DetailPokemonViewModel>{
         DetailPokemonFactory( arguments?.getString("id","") ?: "")
         //DetailPokemonFactory(GetDetailPokemonUseCase)
     }
