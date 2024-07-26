@@ -1,6 +1,5 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.di
 
-import android.content.Context
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.remote.DummyAPI
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.repository.DetailPokemon1RepositoryImpl
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.repository.DetailPokemonRepositoryImpl
@@ -8,7 +7,6 @@ import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.repository.Resul
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemon1Repository
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemonRepository
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.ResultRepository
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDetailPokemon1UseCase
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDetailPokemonUseCase
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetResultUseCase
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.util.Constantes.BASE_URL

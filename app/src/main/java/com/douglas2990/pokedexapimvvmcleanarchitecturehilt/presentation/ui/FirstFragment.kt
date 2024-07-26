@@ -63,9 +63,9 @@ class FirstFragment : Fragment() {
         binding.recyclerFirst.layoutManager = LinearLayoutManager(context)
         binding.firstProgress.isVisible = view.isInvisible
 
-        //initPokemonListViewModel()
+        initPokemonListViewModel()
         //initPokemonListDetailViewModel()
-        initPokemonListDetailTypeViewModel()
+        //initPokemonListDetailTypeViewModel()
 
 
     }
@@ -77,8 +77,6 @@ class FirstFragment : Fragment() {
 
     fun initPokemonListViewModel(){
         pokemonListViewModel.listaPokemon.observe(viewLifecycleOwner){ resultPokemon->
-
-
             binding.recyclerFirst.adapter = ListPokemonAdapter(resultPokemon, firstListener)
         }
     }

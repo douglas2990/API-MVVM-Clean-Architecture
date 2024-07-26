@@ -25,7 +25,7 @@ data class DetailPokemon(
     val types: List<Type>,
     val weight: Int
 )
-fun DetailPokemon.toDetailPokemon() : DetalhePokemon? {
+fun DetailPokemon.toDetailPokemon() : DetalhePokemon {
     return DetalhePokemon(
         habilidades = this.abilities,
         base_experiencia = this.base_experience,
@@ -49,7 +49,7 @@ fun DetailPokemon.toDetailPokemon() : DetalhePokemon? {
         peso = this.weight
     )
 }
-fun DetailPokemon.toDetail1Pokemon() : DetalhePokemon1? {
+fun DetailPokemon.toDetail1Pokemon() : DetalhePokemon1 {
     return DetalhePokemon1(
         id =this.id,
         nome = this.name,

@@ -1,12 +1,10 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.Result
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.DetailPokemon
+
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.databinding.PokemonAdapterBinding
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultado
 
@@ -36,7 +34,7 @@ class ListPokemonAdapter (private val list: List<Resultado>,
             .replace("/", "")
 
 
-        holder.textViewNamePokemon.text = namePokemon.capitalize()
+        holder.textViewNamePokemon.text = namePokemon.replaceFirstChar(Char::titlecaseChar)
         if(pokemonId.toInt() < 900) {
             holder.textViewNumero.text = pokemonId.padStart(3, '0')
         }else{

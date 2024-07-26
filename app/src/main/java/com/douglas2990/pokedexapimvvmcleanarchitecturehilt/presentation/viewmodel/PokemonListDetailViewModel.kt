@@ -4,12 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.toDetail1Pokemon
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultado
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon1
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetDetailPokemon1UseCase
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase.GetResultUseCase
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.state.ListResultState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

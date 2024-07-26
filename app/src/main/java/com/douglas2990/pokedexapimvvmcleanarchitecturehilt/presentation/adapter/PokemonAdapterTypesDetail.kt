@@ -1,5 +1,6 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +8,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.Type
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.databinding.ListPokemonAdapterTypeDetailBinding
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon1
 
@@ -31,6 +31,7 @@ class PokemonAdapterTypesDetail(private val list: List<DetalhePokemon1>,
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListPokemonViewHolder, position: Int) {
 
         val pokemon = list[position]

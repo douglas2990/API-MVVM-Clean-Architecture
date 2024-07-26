@@ -1,10 +1,7 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.usecase
 
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultado
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon1
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemon1Repository
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository.DetalhePokemonRepository
 import javax.inject.Inject
 
 class GetDetailPokemon1UseCase@Inject() constructor(

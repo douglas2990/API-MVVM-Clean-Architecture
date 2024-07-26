@@ -1,6 +1,5 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.respository
 
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.DetailPokemon
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon1
 
 interface DetalhePokemon1Repository {
