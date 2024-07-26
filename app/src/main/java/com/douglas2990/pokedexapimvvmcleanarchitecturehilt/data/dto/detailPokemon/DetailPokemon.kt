@@ -1,6 +1,7 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon
 
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon1
 
 data class DetailPokemon(
     val abilities: List<Ability>,
@@ -46,5 +47,13 @@ fun DetailPokemon.toDetailPokemon() : DetalhePokemon? {
         status = this.stats,
         tipos = this.types,
         peso = this.weight
+    )
+}
+fun DetailPokemon.toDetail1Pokemon() : DetalhePokemon1? {
+    return DetalhePokemon1(
+        id =this.id,
+        nome = this.name,
+        esprites = this.sprites,
+        tipos = this.types,
     )
 }

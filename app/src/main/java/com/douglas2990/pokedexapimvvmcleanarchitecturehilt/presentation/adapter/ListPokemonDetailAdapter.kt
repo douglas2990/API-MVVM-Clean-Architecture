@@ -1,20 +1,17 @@
 package com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.Result
-import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.data.dto.detailPokemon.DetailPokemon
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.databinding.PokemonAdapterBinding
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.Resultado
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.domain.model.detalhe.DetalhePokemon1
 
-//class ListPokemonAdapter (private val list: List<Result>,
-class ListPokemonAdapter (private val list: List<Resultado>,
-                          private var listenner: PokemonInterface? = null
+class ListPokemonDetailAdapter (private val list: List<DetalhePokemon1>,
+                                private var listenner: PokemonInterface? = null
 )
-    : RecyclerView.Adapter<ListPokemonAdapter.ListPokemonViewHolder>() {
+    : RecyclerView.Adapter<ListPokemonDetailAdapter.ListPokemonViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -32,8 +29,7 @@ class ListPokemonAdapter (private val list: List<Resultado>,
         //val namePokemon = pokemon.name
         val namePokemon = pokemon.nome
         //val pokemonId = pokemon.url.replace("https://pokeapi.co/api/v2/pokemon/", "")
-        val pokemonId = pokemon.urlDaApi.replace("https://pokeapi.co/api/v2/pokemon/", "")
-            .replace("/", "")
+        val pokemonId = pokemon.id.toString()
 
 
         holder.textViewNamePokemon.text = namePokemon.capitalize()
@@ -56,7 +52,7 @@ class ListPokemonAdapter (private val list: List<Resultado>,
          */
 
         Glide.with(holder.imgViewPokemon)
-            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + pokemonId + ".png")
+            .load(pokemon.esprites.other.home.front_default)
             .into(holder.imgViewPokemon)
 
     }
@@ -72,6 +68,10 @@ class ListPokemonAdapter (private val list: List<Resultado>,
     override fun getItemCount(): Int {
         return list.size
     }
+
+
+
+
 
 
 }

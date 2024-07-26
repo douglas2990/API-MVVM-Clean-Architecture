@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.databinding.FragmentSecondBinding
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.detail.DetailPokemonFactory
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.ui.detail.DetailPokemonViewModel
+import coil.load
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -23,10 +24,6 @@ class SecondFragment : Fragment() {
 
 
 
-    private val viewModelFactory by viewModels<DetailPokemonViewModel>{
-        DetailPokemonFactory( arguments?.getString("id","") ?: "")
-        //DetailPokemonFactory(GetDetailPokemonUseCase)
-    }
 
     private val detailPokemonViewModel by viewModels<DetailPokemonViewModel>()
 
@@ -47,7 +44,7 @@ class SecondFragment : Fragment() {
 
     }
 
-    @SuppressLint("FragmentLiveDataObserve")
+    @SuppressLint("FragmentLiveDataObserve", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,7 +56,8 @@ class SecondFragment : Fragment() {
 
 
         detailPokemonViewModel.detalhePokemon.observe(viewLifecycleOwner){ resultPokemon->
-            binding.detailNamePokemon.text = resultPokemon?.nome.toString()
+            binding.detailNamePokemon.text = "#" + resultPokemon?.id.toString().padStart(3,'0') + " " + resultPokemon?.nome.toString()
+            binding.detailPokemon.load(resultPokemon?.esprites?.other?.home?.front_default)
         }
 
 

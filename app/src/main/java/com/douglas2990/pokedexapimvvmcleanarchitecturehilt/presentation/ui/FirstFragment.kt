@@ -16,6 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.R
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.databinding.FragmentFirstBinding
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.ListPokemonAdapter
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.ListPokemonDetailAdapter
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.ListTypeAdapter
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.PokemonAdapterTypesDetail
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.adapter.PokemonInterface
+import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.viewmodel.PokemonListDetailViewModel
 import com.douglas2990.pokedexapimvvmcleanarchitecturehilt.presentation.viewmodel.PokemonListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,8 +33,9 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
 
     private val pokemonListViewModel by viewModels<PokemonListViewModel>()
+    private val pokemonListDetailViewModel by viewModels<PokemonListDetailViewModel>()
 
-    private val firstListener = object : ListPokemonAdapter.PokemonInterface{
+    private val firstListener = object : PokemonInterface {
         override fun onClick(pokemonId: String){
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundleOf("id" to pokemonId))
 
@@ -55,14 +61,11 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerFirst.layoutManager = LinearLayoutManager(context)
+        binding.firstProgress.isVisible = view.isInvisible
 
-
-        pokemonListViewModel.listaPokemon.observe(viewLifecycleOwner){ resultPokemon->
-            binding.firstProgress.isVisible = view.isInvisible
-
-            binding.recyclerFirst.adapter = ListPokemonAdapter(resultPokemon, firstListener)
-        }
-
+        //initPokemonListViewModel()
+        //initPokemonListDetailViewModel()
+        initPokemonListDetailTypeViewModel()
 
 
     }
@@ -70,6 +73,28 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun initPokemonListViewModel(){
+        pokemonListViewModel.listaPokemon.observe(viewLifecycleOwner){ resultPokemon->
+
+
+            binding.recyclerFirst.adapter = ListPokemonAdapter(resultPokemon, firstListener)
+        }
+    }
+
+    fun initPokemonListDetailViewModel(){
+        pokemonListDetailViewModel.listaDetailPokemon.observe(viewLifecycleOwner){ resultPokemon->
+
+            binding.recyclerFirst.adapter = ListPokemonDetailAdapter(resultPokemon, firstListener)
+        }
+    }
+
+    fun initPokemonListDetailTypeViewModel(){
+        pokemonListDetailViewModel.listaDetailPokemon.observe(viewLifecycleOwner){ resultPokemon->
+
+            binding.recyclerFirst.adapter = PokemonAdapterTypesDetail(resultPokemon,requireContext(), firstListener)
+        }
     }
 
     fun teste(){
